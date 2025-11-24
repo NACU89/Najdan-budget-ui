@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { categoriesPath } from './category/category.routes';
 import { expensesPath } from './expense/expense.routes';
 
-export const defaultPath = categoriesPath;
+export const defaultPath = expensesPath;
 
 const appRoutes: Routes = [
   {

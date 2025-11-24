@@ -1,0 +1,45 @@
+ion-header ion-toolbar {
+  --background: var(--ion-color-step-150);
+}
+
+ion-header ion-button {
+  --color: var(--ion-text-color);
+  text-transform: none;
+  font-weight: normal;
+}
+
+ion-header ion-title {
+  text-align: center;
+}
+
+.expense-form {
+  padding: 16px;
+}
+
+ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  margin-bottom: 16px;
+}
+
+ion-item ion-icon[slot="start"] {
+  margin-inline-end: 16px;
+  color: var(--ion-color-medium);
+}
+
+ion-item ion-label[position="stacked"] {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+ion-item ion-input,
+ion-item ion-select {
+  --padding-start: 0;
+}
+
+.delete-button {
+  --color: var(--ion-color-danger);
+  margin: 16px auto;
+  display: block;
+}
+

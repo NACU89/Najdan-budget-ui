@@ -1,1 +1,94 @@
-Expense Modal
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">
+        <ion-icon name="close" />
+        <span>CANCEL</span>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ isEditMode ? 'Edit Expense' : 'Add Expense' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()">
+        <ion-icon name="save" />
+        <span>SAVE</span>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" class="expense-form">
+    <!-- Name Field -->
+    <ion-item>
+      <ion-icon slot="start" name="text" />
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input
+        formControlName="name"
+        placeholder="Enter expense name"
+        autofocus
+      />
+    </ion-item>
+
+    <!-- Category Field -->
+    <ion-item>
+      <ion-icon slot="start" name="pricetag" />
+      <ion-label position="stacked">Category</ion-label>
+      <ion-select formControlName="categoryId" placeholder="Select category">
+        <ion-select-option value="category1">Category test</ion-select-option>
+        <ion-select-option value="category2">Another category</ion-select-option>
+      </ion-select>
+      <ion-button
+        slot="end"
+        fill="clear"
+        size="small"
+        (click)="showCategoryModal()"
+      >
+        <ion-icon name="add" />
+      </ion-button>
+    </ion-item>
+
+    <!-- Amount Field -->
+    <ion-item>
+      <ion-icon slot="start" name="cash" />
+      <ion-label position="stacked">Amount</ion-label>
+      <ion-input
+        formControlName="amount"
+        type="number"
+        placeholder="0.00"
+      />
+      <ion-label slot="end">CHF</ion-label>
+    </ion-item>
+
+    <!-- Date Field -->
+    <ion-item>
+      <ion-icon slot="start" name="calendar" />
+      <ion-label position="stacked">Date</ion-label>
+      <ion-datetime-button datetime="datetime" />
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime
+            id="datetime"
+            formControlName="date"
+            presentation="date"
+            [value]="form.get('date')?.value"
+          />
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+  </form>
+</ion-content>
+
+@if (isEditMode) {
+  <ion-footer>
+    <ion-toolbar>
+      <ion-button
+        fill="clear"
+        color="danger"
+        (click)="delete()"
+        class="delete-button"
+      >
+        <ion-icon name="trash" />
+      </ion-button>
+    </ion-toolbar>
+  </ion-footer>
+}

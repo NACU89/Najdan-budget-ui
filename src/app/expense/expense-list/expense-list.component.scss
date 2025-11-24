@@ -1,0 +1,96 @@
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  --color: var(--ion-text-color);
+  text-transform: none;
+  font-weight: normal;
+
+  span {
+    margin: 0 4px;
+  }
+}
+
+.search-bar {
+  flex: 1;
+  min-width: 150px;
+  --box-shadow: none;
+  --background: var(--ion-color-step-100);
+  --border-radius: 8px;
+  padding: 0;
+}
+
+.expense-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 80px;
+  margin-bottom: 8px;
+  --background: var(--ion-color-step-100);
+  --border-radius: 8px;
+}
+
+.expense-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.expense-date {
+  min-width: 100px;
+  color: var(--ion-color-medium);
+  font-size: 14px;
+}
+
+.expense-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.expense-name {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.expense-category {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ion-color-medium);
+  font-size: 14px;
+
+  ion-icon {
+    font-size: 16px;
+  }
+}
+
+.expense-amount {
+  font-weight: 600;
+  font-size: 16px;
+  text-align: right;
+  min-width: 120px;
+}
+
+.month-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  margin-top: auto;
+}
+
+.month-label {
+  font-size: 16px;
+  font-weight: 500;
+  min-width: 150px;
+  text-align: center;
+}
+

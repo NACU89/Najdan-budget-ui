@@ -117,3 +117,14 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+.logout-item {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  --color: var(--ion-text-color);
+}
+
+.logout-item ion-icon {
+  color: var(--ion-color-primary);
+}

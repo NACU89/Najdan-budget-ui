@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { addIcons } from 'ionicons';
-import { analytics, logOut, podium, pricetag } from 'ionicons/icons';
+import { analytics, arrowForward, logOut, podium, pricetag } from 'ionicons/icons';
 import { categoriesPath } from './category/category.routes';
 import { expensesPath } from './expense/expense.routes';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -47,6 +47,6 @@ export default class AppComponent {
 
   constructor() {
     // Add all used Ionic icons
-    addIcons({ analytics, logOut, podium, pricetag });
+    addIcons({ analytics, arrowForward, logOut, podium, pricetag });
   }
 }
