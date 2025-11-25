@@ -2,10 +2,11 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <!-- Navigation List -->
-      <ion-content>
+      <ion-content class="menu-content">
         <ion-list id="menu-list">
           <ion-list-header>
             <ion-label>Budget UI</ion-label>
+            <ion-toggle slot="end" [checked]="true" />
           </ion-list-header>
 
           @for (page of appPages; track page.title; let i = $index) {
@@ -23,7 +24,9 @@
               </ion-item>
             </ion-menu-toggle>
           }
+        </ion-list>
 
+        <ion-list id="logout-list">
           <ion-item lines="none" [button]="true" class="logout-item">
             <ion-icon slot="end" name="arrow-forward" />
             <ion-label>LOGOUT</ion-label>

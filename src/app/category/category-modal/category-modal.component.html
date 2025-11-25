@@ -1,1 +1,32 @@
-Category Modal
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()" class="cancel-button">
+        <span class="x-text">X</span>
+        <span class="cancel-text">CANCEL</span>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Add category</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()" class="save-button">
+        <ion-icon name="save" />
+        <span>SAVE</span>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" class="category-form">
+    <!-- Name Field -->
+    <ion-item>
+      <ion-icon slot="start" name="text" />
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input
+        formControlName="name"
+        placeholder="Name"
+        autofocus
+      />
+    </ion-item>
+  </form>
+</ion-content>

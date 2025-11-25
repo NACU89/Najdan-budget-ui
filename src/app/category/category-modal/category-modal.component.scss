@@ -1,0 +1,119 @@
+ion-header ion-toolbar {
+  --background: var(--ion-color-step-150);
+}
+
+ion-header ion-button {
+  --color: var(--ion-text-color);
+  text-transform: none;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+ion-header ion-button.cancel-button {
+  --color: transparent;
+  --background: transparent;
+  --box-shadow: none;
+}
+
+ion-header ion-button.cancel-button .x-text {
+  margin-inline-end: 4px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.8);
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+@media (prefers-color-scheme: dark) {
+  ion-header ion-button.cancel-button .x-text {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+ion-header ion-button.cancel-button .cancel-text {
+  margin-inline-start: 0;
+  display: inline-block;
+  color: var(--ion-color-step-500, #808080);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+ion-header ion-button ion-icon {
+  margin-inline-end: 4px;
+}
+
+ion-header ion-title {
+  text-align: center;
+  font-weight: 500;
+}
+
+.category-form {
+  padding: 16px;
+}
+
+ion-item {
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
+  --padding-end: 16px;
+  --inner-padding-start: 16px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  margin-bottom: 0;
+  --background: var(--ion-color-step-100);
+  --border-radius: 8px;
+  --border-width: 0;
+  --inner-border-width: 0;
+  --min-height: auto;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+}
+
+ion-item::part(native) {
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+ion-item ion-icon[slot="start"] {
+  margin-inline-end: 16px;
+  margin-inline-start: 0;
+  color: var(--ion-color-step-500, #808080);
+  font-size: 20px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 0;
+}
+
+ion-item .item-inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+
+ion-item ion-label[position="stacked"] {
+  margin-bottom: 8px;
+  margin-top: 0;
+  margin-inline-start: 0;
+  font-weight: 500;
+  color: var(--ion-color-step-500, #808080);
+  font-size: 14px;
+  display: block;
+  width: 100%;
+}
+
+ion-item ion-input {
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  min-height: 40px;
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  color: var(--ion-text-color);
+}
+

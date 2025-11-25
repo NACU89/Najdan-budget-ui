@@ -15,7 +15,8 @@ import {
   IonMenu,
   IonMenuToggle,
   IonRouterOutlet,
-  IonSplitPane
+  IonSplitPane,
+  IonToggle
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -36,7 +37,8 @@ import {
     IonMenuToggle,
     IonItem,
     IonIcon,
-    IonRouterOutlet
+    IonRouterOutlet,
+    IonToggle
   ]
 })
 export default class AppComponent {

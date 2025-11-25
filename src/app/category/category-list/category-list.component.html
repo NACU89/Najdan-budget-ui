@@ -1,1 +1,43 @@
-Category List
+<ion-header>
+  <ion-toolbar>
+    <div class="header-content">
+      <ion-title>Categories</ion-title>
+      <ion-toggle [checked]="true" class="header-toggle" />
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Filter and Search Bar -->
+  <div class="filter-bar">
+    <ion-button fill="clear" class="filter-button">
+      <ion-icon slot="start" name="swap-vertical" />
+      <span>Name (A-Z)</span>
+      <ion-icon slot="end" name="chevron-down" />
+    </ion-button>
+
+    <ion-searchbar
+      placeholder="Search"
+      class="search-bar"
+      [showClearButton]="false"
+    />
+  </div>
+
+  <!-- Category List -->
+  <ion-list>
+    <!-- Mock Category Item -->
+    <ion-item button class="category-item">
+      <ion-label class="category-label">
+        <div class="category-name">Category test</div>
+      </ion-label>
+      <ion-icon slot="end" name="chevron-forward" class="chevron-icon" />
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<!-- Floating Action Button -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="openModal()">
+    <ion-icon name="add" />
+  </ion-fab-button>
+</ion-fab>
