@@ -10,9 +10,12 @@
 <ion-content>
   <!-- Filter and Search Bar -->
   <div class="filter-bar">
-    <ion-button fill="clear" class="filter-button">
+    <ion-button fill="clear" class="filter-button" (click)="openSortPopover($event)">
       <ion-icon slot="start" name="swap-vertical" />
-      <span>Name (A-Z)</span>
+      <span>{{ sortOption().label }}</span>
+      @if (sortOption().icon) {
+        <ion-icon [name]="sortOption().icon" class="sort-icon" />
+      }
       <ion-icon slot="end" name="chevron-down" />
     </ion-button>
 

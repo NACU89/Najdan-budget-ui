@@ -48,7 +48,8 @@ export interface CategoryCriteria extends PagingCriteria {
   name?: string;
 }
 
-export interface AllCategoryCriteria extends SortCriteria {
+export interface AllCategoryCriteria {
+  sort?: string;
   name?: string;
 }
 

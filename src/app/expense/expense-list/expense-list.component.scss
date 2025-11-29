@@ -78,13 +78,83 @@
   min-width: 120px;
 }
 
+ion-list {
+  padding: 0 16px;
+}
+
+.date-group {
+  margin-bottom: 24px;
+}
+
+.date-header {
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ion-color-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.expense-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 80px;
+  margin-bottom: 8px;
+  --background: var(--ion-color-step-100);
+  --border-radius: 8px;
+}
+
+.expense-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.expense-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.expense-name {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.expense-category {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--ion-color-medium);
+  font-size: 14px;
+
+  ion-icon {
+    font-size: 16px;
+  }
+}
+
+.expense-amount {
+  font-weight: 600;
+  font-size: 16px;
+  text-align: right;
+  min-width: 120px;
+}
+
+ion-footer ion-toolbar {
+  --background: var(--ion-background-color);
+  --border-width: 0;
+  --min-height: 60px;
+}
+
 .month-navigation {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
-  padding: 16px;
-  margin-top: auto;
+  width: 100%;
+  padding: 8px 0;
 }
 
 .month-label {
@@ -92,5 +162,21 @@
   font-weight: 500;
   min-width: 150px;
   text-align: center;
+}
+
+.empty-state {
+  padding: 48px 16px;
+  text-align: center;
+  color: var(--ion-color-medium);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+
+  p {
+    margin: 0;
+    font-size: 16px;
+  }
 }
 

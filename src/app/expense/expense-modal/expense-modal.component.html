@@ -6,7 +6,7 @@
         <span>CANCEL</span>
       </ion-button>
     </ion-buttons>
-    <ion-title>{{ isEditMode ? 'Edit Expense' : 'Add Expense' }}</ion-title>
+    <ion-title>{{ isEditMode() ? 'Edit Expense' : 'Add Expense' }}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="save()">
         <ion-icon name="save" />
@@ -34,8 +34,10 @@
       <ion-icon slot="start" name="pricetag" />
       <ion-label position="stacked">Category</ion-label>
       <ion-select formControlName="categoryId" placeholder="Select category">
-        <ion-select-option value="category1">Category test</ion-select-option>
-        <ion-select-option value="category2">Another category</ion-select-option>
+        <ion-select-option [value]="null">Keine Kategorie</ion-select-option>
+        @for (category of categories(); track category.id) {
+          <ion-select-option [value]="category.id">{{ category.name }}</ion-select-option>
+        }
       </ion-select>
       <ion-button
         slot="end"
@@ -54,6 +56,8 @@
       <ion-input
         formControlName="amount"
         type="number"
+        step="0.01"
+        min="0.01"
         placeholder="0.00"
       />
       <ion-label slot="end">CHF</ion-label>
@@ -78,7 +82,7 @@
   </form>
 </ion-content>
 
-@if (isEditMode) {
+@if (isEditMode()) {
   <ion-footer>
     <ion-toolbar>
       <ion-button

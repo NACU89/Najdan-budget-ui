@@ -43,9 +43,16 @@ ion-header ion-title {
   --color: var(--ion-text-color);
   text-transform: none;
   font-weight: normal;
+  position: relative;
 
   span {
     margin: 0 4px;
+  }
+
+  .sort-icon {
+    margin-inline-start: 4px;
+    font-size: 12px;
+    color: var(--ion-text-color);
   }
 }
 

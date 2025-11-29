@@ -7,15 +7,15 @@
 <ion-content>
   <!-- Filter and Search Bar -->
   <div class="filter-bar">
-    <ion-button fill="clear" class="filter-button">
+    <ion-button fill="clear" class="filter-button" (click)="openSortPopover($event)">
       <ion-icon slot="start" name="swap-vertical" />
-      <span>Date (newest first)</span>
+      <span>{{ sortOption() }}</span>
       <ion-icon slot="end" name="chevron-down" />
     </ion-button>
 
-    <ion-button fill="clear" class="filter-button">
+    <ion-button fill="clear" class="filter-button" (click)="openCategoryPopover($event)">
       <ion-icon slot="start" name="pricetag" />
-      <span>Category</span>
+      <span>{{ categoryOption() }}</span>
       <ion-icon slot="end" name="chevron-down" />
     </ion-button>
 
@@ -27,51 +27,60 @@
   </div>
 
   <!-- Expense List -->
-  <ion-list>
-    <!-- Mock Expense Item 1 -->
-    <ion-item button class="expense-item">
-      <ion-label>
-        <div class="expense-row">
-          <div class="expense-date">24.11.2025</div>
-          <div class="expense-details">
-            <div class="expense-name">3r324r2</div>
-            <div class="expense-category">
-              <ion-icon name="pricetag" />
-              <span>Category test</span>
-            </div>
+  @if (expenses().length === 0 && !loading()) {
+    <div class="empty-state">
+      <p>Keine Ausgaben f&uuml;r diesen Monat vorhanden</p>
+    </div>
+  } @else {
+    @if (getGroupedExpenses().size > 0) {
+      <ion-list>
+        @for (dateGroup of getGroupedExpenses() | keyvalue; track dateGroup.key) {
+          <div class="date-group">
+            <div class="date-header">{{ dateGroup.key }}</div>
+            @for (expense of dateGroup.value; track expense.id) {
+              <ion-item button class="expense-item" (click)="openEditModal(expense)">
+                <ion-label>
+                  <div class="expense-row">
+                    <div class="expense-details">
+                      <div class="expense-name">{{ expense.name }}</div>
+                      @if (expense.category) {
+                        <div class="expense-category">
+                          <ion-icon name="pricetag" />
+                          <span>{{ expense.category.name }}</span>
+                        </div>
+                      }
+                    </div>
+                    <div class="expense-amount">CHF {{ expense.amount.toLocaleString('de-CH', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) }}</div>
+                  </div>
+                </ion-label>
+                <ion-icon slot="end" name="chevron-forward" />
+              </ion-item>
+            }
           </div>
-          <div class="expense-amount">CHF 3'434.00</div>
-        </div>
-      </ion-label>
-      <ion-icon slot="end" name="chevron-forward" />
-    </ion-item>
-
-    <!-- Mock Expense Item 2 -->
-    <ion-item button class="expense-item">
-      <ion-label>
-        <div class="expense-row">
-          <div class="expense-date">18.11.2025</div>
-          <div class="expense-details">
-            <div class="expense-name">Test Najdan</div>
-          </div>
-          <div class="expense-amount">CHF 32'423'432.00</div>
-        </div>
-      </ion-label>
-      <ion-icon slot="end" name="chevron-forward" />
-    </ion-item>
-  </ion-list>
-
-  <!-- Month Navigation -->
-  <div class="month-navigation">
-    <ion-button fill="clear" (click)="addMonths(-1)">
-      <ion-icon name="arrow-back" />
-    </ion-button>
-    <span class="month-label">{{ formatMonth(date) }}</span>
-    <ion-button fill="clear" (click)="addMonths(1)">
-      <ion-icon name="arrow-forward" />
-    </ion-button>
-  </div>
+        }
+      </ion-list>
+    } @else {
+      <div class="empty-state">
+        <p>Keine Ausgaben f&uuml;r diesen Monat vorhanden</p>
+      </div>
+    }
+  }
 </ion-content>
+
+<!-- Month Navigation Footer -->
+<ion-footer>
+  <ion-toolbar>
+    <div class="month-navigation">
+      <ion-button fill="clear" (click)="addMonths(-1)">
+        <ion-icon name="arrow-back" />
+      </ion-button>
+      <span class="month-label">{{ formatMonth(date) }}</span>
+      <ion-button fill="clear" (click)="addMonths(1)">
+        <ion-icon name="arrow-forward" />
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
 
 <!-- Floating Action Button -->
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">

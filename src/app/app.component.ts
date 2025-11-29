@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+    import { Component } from '@angular/core';
 import { addIcons } from 'ionicons';
 import { analytics, arrowForward, logOut, podium, pricetag } from 'ionicons/icons';
 import { categoriesPath } from './category/category.routes';
